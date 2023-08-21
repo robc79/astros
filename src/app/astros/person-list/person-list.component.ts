@@ -11,6 +11,7 @@ import { AstronautService } from '../astros-service.service';
 export class PersonListComponent implements OnInit, OnDestroy {
   private sub!: Subscription;
   people: string[] = [];
+  craft = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -21,11 +22,18 @@ export class PersonListComponent implements OnInit, OnDestroy {
   }
   
   ngOnInit(): void {
-    this.sub = this.astrosService.getAstrosData().subscribe({
-      next: data => {
-        let craft = this.route.snapshot.params['craft'];
-        this.people = data.people.filter(p => p.craft === craft).map(p => p.name);
-      }
-    })
+    this.craft = this.route.snapshot.params['craft'];
+
+    if (this.craft == 'reddwarf') {
+      this.people = [ 'Dave Lister', 'Arnold Rimmer (Hologram)', 'Cat (Cat)', 'Kryten (Android)']
+    }
+    else {
+      this.sub = this.astrosService.getAstrosData().subscribe({
+        next: data => {
+          this.people = data.people.filter(p => p.craft === this.craft).map(p => p.name);
+        }
+      });
+    }
+    
   }
 }

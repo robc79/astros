@@ -7,7 +7,8 @@ import { AstrosData } from "./astros-data";
     providedIn: "root"
 })
 export class AstronautService {
-    private sourceUrl = '../../assets/astros.json'
+    private sourceUrl = 'http://api.open-notify.org/astros.json'
+
     constructor(private http: HttpClient) {}
 
     getAstrosData() : Observable<AstrosData> {
