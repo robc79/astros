@@ -18,14 +18,15 @@ export class PersonListComponent implements OnInit, OnDestroy {
     private astrosService: AstronautService) {}
   
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.sub?.unsubscribe();
   }
   
   ngOnInit(): void {
     this.craft = this.route.snapshot.params['craft'];
 
     if (this.craft == 'reddwarf') {
-      this.people = [ 'Dave Lister', 'Arnold Rimmer (Hologram)', 'Cat (Cat)', 'Kryten (Android)']
+      this.people = [ 'Dave Lister (Human)', 'Arnold Rimmer (Hologram)', 'Cat (Cat)', 'Kryten (Android)']
+      this.craft = "Red Dwarf";
     }
     else {
       this.sub = this.astrosService.getAstrosData().subscribe({

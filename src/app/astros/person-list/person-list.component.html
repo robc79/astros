@@ -1,9 +1,9 @@
-<span>{{craft}}</span>
+<span><a routerLink="/craft">back</a></span>
 
-<ul>
-    <li *ngFor="let person of people">
-        {{person}}
-    </li>
-</ul>
+<span class="spacer"><b>{{craft}}</b></span>
+
+<mat-list role="list">
+    <mat-list-item *ngFor="let person of people" role="listitem">{{person}}</mat-list-item>
+</mat-list>
 
 <span>Total: {{people.length}}</span>
