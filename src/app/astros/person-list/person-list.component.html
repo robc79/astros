@@ -1,9 +1,14 @@
-<span><a routerLink="/craft">back</a></span>
-
-<span class="spacer"><b>{{craft}}</b></span>
-
-<mat-list role="list">
-    <mat-list-item *ngFor="let person of people" role="listitem">{{person}}</mat-list-item>
-</mat-list>
-
-<span>Total: {{people.length}}</span>
+<mat-card>
+    <mat-card-header>
+        <h2>{{craft}}</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list role="list">
+            <mat-list-item *ngFor="let person of people" role="listitem">{{person}}</mat-list-item>
+        </mat-list>
+    </mat-card-content>
+    <mat-card-footer>
+        <span><a routerLink="/craft">back</a></span>
+        <span class="spacer">Total: {{people.length}}</span>
+    </mat-card-footer>
+</mat-card>

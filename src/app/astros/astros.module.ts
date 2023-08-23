@@ -4,7 +4,8 @@ import { CraftListComponent } from './craft-list/craft-list.component';
 import { PersonListComponent } from './person-list/person-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {MatListModule} from '@angular/material/list';
     CommonModule,
     HttpClientModule,
     RouterLink,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ]
 })
 export class AstrosModule { }
